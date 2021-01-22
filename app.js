@@ -24,6 +24,7 @@ import {Settings} from "./settings.js";
 import {SkyBox} from "./skybox.js";
 import {Util} from "./util.js";
 import {Tile, Tiler} from "./tiles.js";
+import {BevelShader} from "./bevel_shader.js";
 
 
 class App {
@@ -445,11 +446,13 @@ class App {
 
     const stoneColor = Colors.chooseRandom("stone", featureId);
 
-    const buildingColor = Colors.chooseRandom("brickcrete", featureId);
+    // const buildingColor = Colors.chooseRandom("brickcrete", featureId);
+    const buildingColor = [0,1,0];
+    mtlCreator.material = null;
     const windowTreatmentColor = Colors.chooseRandom("concrete", featureId + "windowTreatment");
     const roofCorniceColor = Colors.chooseRandom("concrete", featureId + "roofCornice");
     const stairColor = Colors.chooseRandom("stone", featureId);
-    const doorColor = blackColor;
+    const doorColor = blackColor; 
     const storeFrontColor = Colors.chooseRandom("concrete", featureId + "storeFront");
     const roofColor = Colors.chooseRandom("roof", featureId + "roof");
     const windowCasingFrameColor = Colors.brighten(storeFrontColor, 0.3);
@@ -888,6 +891,7 @@ class App {
 
     // One all the promises from the outer zip file have resolved, read the inner zip files
     // to create the actual Object3Ds.
+    // TODO(eimearc): Change here.
     Promise.all(promises).then(() => {
       Object.keys(buildingData).forEach(buildingId => {
         const mtl = buildingData[buildingId].mtl;

@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import {BevelShader} from "./bevel_shader.js";
 import {Util} from "./util.js";
 
 class Extruder {
@@ -113,11 +114,12 @@ class Extruder {
       v.z -= 0.02;
     });
     options = options || {};
+    /*
     const mat = new THREE.MeshPhongMaterial({
-      color: options.color ? options.color : Util.generateRandomGreyColor(options['brightnessOfExtrudedModels'],
-                                                                          options['colorVariationOfExtrudedModels']),
+      color: 0.001,
       side: options.side == null ? THREE.DoubleSide : options.side
-    });
+    });*/
+    const mat = new THREE.ShaderMaterial(BevelShader)
     const mesh = THREE.SceneUtils.createMultiMaterialObject(geometry, [mat]);
     mesh.rotation.x = 90 * (Math.PI / 180);
     return mesh;

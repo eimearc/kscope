@@ -41,7 +41,8 @@ Rect.rect = (xzMin, xzMax, options) => {
 
 Rect.solidRect = (xzMin, xzMax, options) => {
     const material = new THREE.MeshBasicMaterial( {
-      color: 'color' in options ? options.color : 0xffffff
+      //color: 'color' in options ? options.color : 0xffffff
+      color: [0,1,1]
     });
     const container = new THREE.Object3D();
     const geom = new THREE.Geometry();

@@ -26,7 +26,7 @@ let Settings = {
   'fieldOfView': 45.0,
   'nearPlane': 1.0,
   'farPlane': 5000,
-  'shadows': false,
+  'shadows': true,
   'lights': {
     'Ambient': [
       {'color': 0xcccccc, 'intensity': 0.3}
@@ -65,8 +65,8 @@ let Settings = {
   'averageStoreyHeightMeters': 4.3,
   'minimumExtrusionMeters': 0.01,
   'brightnessOfModels': 0.4,
-  'brightnessOfExtrudedModels': 0.6,
-  'colorVariationOfExtrudedModels': 0.1,
+  'brightnessOfExtrudedModels': 0.06,
+  'colorVariationOfExtrudedModels': 0.0,
 
   'year': 1940,
   'tilesize' : 1000,
